@@ -20,20 +20,18 @@
     // Calcola tariffa standard in base ai km che vuole percorrere l'utente
     const prezzoStandard = prezzoKm * inputKm;
     console.log("questo è il prezzo standard", prezzoStandard.toFixed(2), "€");
-    // APPLICA SCONTISTICA LADDOVE PREVISTA
     
+    // APPLICA SCONTISTICA LADDOVE PREVISTA
         // Se l'età dell'utente è inferiore ai 18 anni
-            // Il programma deve applicare lo sconto del 20%
-        if (userAge < 18) {
-            const prezzo = prezzoStandard * scontoUnder18
-            alert(prezzo);
-            console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo" , prezzo.toFixed(2) , "€");
-        }
-        // Se l'età dell'utente è maggiore/uguale ai 65 anni
-            // Il programma deve applicare lo sconto del 40%
-        else if (userAge > 64) {
-            const prezzo = prezzoStandard * scontoOver65;
-            alert(prezzo);
-            console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo" , prezzo.toFixed(2) , "€");
-        }
+        // Il programma deve applicare lo sconto del 20%
+    if (userAge < 18) {
+        const prezzo = prezzoStandard * scontoUnder18;
+        console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo" , prezzo.toFixed(2) , "€");
+    }
+    // Se l'età dell'utente è maggiore/uguale ai 65 anni
+        // Il programma deve applicare lo sconto del 40%
+    else if(userAge > 64) {
+        const prezzo = prezzoStandard * scontoOver65;
+        console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo" , prezzo.toFixed(2) , "€");
+    }
         
