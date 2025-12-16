@@ -25,14 +25,14 @@ Ari-buonDivertimento... 🚂
  */
 
 
-// SELEZIONO ELEMENTI HTML SUI QUALI VOGLIO AGIRE
+/*// SELEZIONO ELEMENTI HTML SUI QUALI VOGLIO AGIRE
 const bottone = document.getElementById("calcola");
 const output = document.getElementById("risultato"); /* Per utilizzare il nuovo <DIV> in HTML devo selezionarlo qui in JS */
 
 
 // AZIONI CHE QUESTI ELEMENTI DEVONO COMPIERE
 
-/* .addEventListener pone tutte le azioni a seguito del click su bottone */
+/* .addEventListener pone tutte le azioni a seguito del click su bottone 
 bottone.addEventListener("click", function () {
 
     // Leggo i valori dagli input al momento del click
@@ -71,7 +71,29 @@ bottone.addEventListener("click", function () {
 
 /* ORA (dopo aver selezionato l'elemento HTML in JS (vedi riga 30)) PROVO A STAMPARE IL RISULTATO IN PAGINA INVECE CHE IN CONSOLE */
     output.innerHTML = `Km: ${km} <br> Età: ${eta} <br> Prezzo finale: €${prezzoFinale.toFixed(2)}`;
-/* QUESTO OUTPUT FUNZIONA SOLO ALL'INTERNO DEL EVENTO CLICK, PERCHE' SOLO QUI VIENE DICHIARATA LA VARIABILE let prezzoFinale */
+/* QUESTO OUTPUT FUNZIONA SOLO ALL'INTERNO DEL EVENTO CLICK, PERCHE' SOLO QUI VIENE DICHIARATA LA VARIABILE let prezzoFinale
 
+});*/
+
+// RAZIONALIZZAZIONE DEL CODICE
+// Prendo elementi dal DOM
+const bottone = document.getElementById("calcola");
+const output = document.getElementById("risultato");
+
+bottone.addEventListener("click", function() {
+    // Leggo valori input
+    const km = Number(document.getElementById("km").value);
+    const eta = Number(document.getElementById("eta").value);
+
+    // Controllo input validi
+    if (!km || !eta) {
+        alert("Inserisci sia i km che l'età!");
+        return;
+    }
+
+    // Uso la funzione per calcolare prezzo
+    const prezzoFinale = calcolaPrezzoBiglietto(km, eta);
+
+    // Mostro in pagina
+    output.innerHTML = `Km: ${km} <br> Età: ${eta} <br> Prezzo finale: €${prezzoFinale.toFixed(2)}`;
 });
-

@@ -1,4 +1,4 @@
-// Chiedere età e chilometri da percorrere all'untente e elaborare il prezzo del biglietto
+/*// Chiedere età e chilometri da percorrere all'untente e elaborare il prezzo del biglietto
 
 // Fisso i dati sulla base dei quali elaborare il costo del biglietto
 // Fisso tariffa base al chilometro (0,21€/km)
@@ -15,7 +15,7 @@ const inputKm = parseInt(prompt("Quanti chilometri devi percorrere?"));
 /* Chiedo età utente (salvataggio dato)
 const userAge = parseInt(prompt("Quanti anni hai?"));
 console.log(inputKm, userAge);
-*/
+
 
 const km = Number(document.getElementById("km").value);
 const eta = Number(document.getElementById("eta").value);
@@ -38,4 +38,23 @@ else if (eta > 64) {
     const prezzo = prezzoStandard * scontoOver65;
     console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo", prezzo.toFixed(2), "€");
 }
+*/
+// RAZIONALIZZAZIONE DEL CODICE
 
+// Costanti per il calcolo
+const prezzoKm = 0.21;
+const scontoUnder18 = 0.8;
+const scontoOver65 = 0.6;
+
+// Funzione che calcola il prezzo del biglietto
+function calcolaPrezzoBiglietto(km, eta) {
+    const prezzoStandard = km * prezzoKm;
+
+    if (eta < 18) {
+        return prezzoStandard * scontoUnder18;
+    } else if (eta >= 65) {
+        return prezzoStandard * scontoOver65;
+    } else {
+        return prezzoStandard;
+    }
+}
