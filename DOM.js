@@ -31,3 +31,24 @@ const bottone = document.getElementById("calcola");
 
 
 // AZIONI CHE QUESTI ELEMENTI DEVONO COMPIERE
+
+/* .addEventListener pone tutte le azioni a seguito del click su bottone */
+bottone.addEventListener("click", function () {
+
+    // Leggo i valori dagli input al momento del click
+    const km = Number(document.getElementById("km").value);
+    const eta = Number(document.getElementById("eta").value);
+
+    // Controllo input validi
+    if (!km || !eta) {
+        console.log("Inserisci sia i km che l'età!");
+        return;
+    }
+
+    // DEBUG
+    console.log("Click registrato!");
+
+    // COPIO IL CALCOLO 
+        
+
+});
