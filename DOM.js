@@ -27,7 +27,7 @@ Ari-buonDivertimento... 🚂
 
 // SELEZIONO ELEMENTI HTML SUI QUALI VOGLIO AGIRE
 const bottone = document.getElementById("calcola");
-
+const output = document.getElementById("risultato"); /* Per utilizzare il nuovo <DIV> in HTML devo selezionarlo qui in JS */
 
 
 // AZIONI CHE QUESTI ELEMENTI DEVONO COMPIERE
@@ -38,10 +38,11 @@ bottone.addEventListener("click", function () {
     // Leggo i valori dagli input al momento del click
     const km = Number(document.getElementById("km").value);
     const eta = Number(document.getElementById("eta").value);
-
+     
     // Controllo input validi
     if (!km || !eta) {
         console.log("Inserisci sia i km che l'età!");
+        alert("Inserisci sia i km che l'età!"); // DEVE APPARIRE ANCHE ALL'UTENTE
         return;
     }
 
@@ -50,22 +51,27 @@ bottone.addEventListener("click", function () {
 
     // COPIO IL CALCOLO 
     const prezzoStandard = prezzoKm * km;
+    let prezzoFinale = prezzoStandard;
     console.log("questo è il prezzo standard", prezzoStandard.toFixed(2), "€");
-
     // APPLICA SCONTISTICA LADDOVE PREVISTA
     // Se l'età dell'utente è inferiore ai 18 anni
     // Il programma deve applicare lo sconto del 20%
     if (eta < 18) {
         const prezzo = prezzoStandard * scontoUnder18;
+        prezzoFinale = prezzoStandard * scontoUnder18;
         console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo", prezzo.toFixed(2), "€");
     }
     // Se l'età dell'utente è maggiore/uguale ai 65 anni
     // Il programma deve applicare lo sconto del 40%
     else if (eta > 64) {
         const prezzo = prezzoStandard * scontoOver65;
+        prezzoFinale = prezzoStandard * scontoOver65;
         console.log("Hai diritto ad uno sconto! Questo è il tuo prezzo", prezzo.toFixed(2), "€");
     }
 
-
+/* ORA (dopo aver selezionato l'elemento HTML in JS (vedi riga 30)) PROVO A STAMPARE IL RISULTATO IN PAGINA INVECE CHE IN CONSOLE */
+    output.innerHTML = `Km: ${km} <br> Età: ${eta} <br> Prezzo finale: €${prezzoFinale.toFixed(2)}`;
+/* QUESTO OUTPUT FUNZIONA SOLO ALL'INTERNO DEL EVENTO CLICK, PERCHE' SOLO QUI VIENE DICHIARATA LA VARIABILE let prezzoFinale */
 
 });
+
