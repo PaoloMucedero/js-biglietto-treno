@@ -70,7 +70,7 @@ bottone.addEventListener("click", function () {
     }
 
 /* ORA (dopo aver selezionato l'elemento HTML in JS (vedi riga 30)) PROVO A STAMPARE IL RISULTATO IN PAGINA INVECE CHE IN CONSOLE */
-    output.innerHTML = `Km: ${km} <br> Età: ${eta} <br> Prezzo finale: €${prezzoFinale.toFixed(2)}`;
+    /*output.innerHTML = `Km: ${km} <br> Età: ${eta} <br> Prezzo finale: €${prezzoFinale.toFixed(2)}`;
 /* QUESTO OUTPUT FUNZIONA SOLO ALL'INTERNO DEL EVENTO CLICK, PERCHE' SOLO QUI VIENE DICHIARATA LA VARIABILE let prezzoFinale
 
 });*/
