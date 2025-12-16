@@ -23,3 +23,11 @@ Se non vi sentite particolarmente creativi, questa potrebbe essere un’implemen
 
 Ari-buonDivertimento... 🚂
  */
+
+
+// SELEZIONO ELEMENTI HTML SUI QUALI VOGLIO AGIRE
+const bottone = document.getElementById("calcola");
+
+
+
+// AZIONI CHE QUESTI ELEMENTI DEVONO COMPIERE
